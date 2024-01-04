@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --primary: #008cff;
+        --text-color: #151515;
+      }
+
+      body {
+        color: var(--text-color);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+      }
+
+      main,
+      header {
+        padding: 8px;
+      }
+
+      header {
+        background-color: rgba(0, 140, 255, 0.1);
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      nav > * {
+        padding: 0.5em;
+      }
+
+      header a {
+        color: var(--primary);
+      }
+
+      button {
+        background-color: var(--primary);
+        border: 0;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 0.4em;
+      }
+
+      .rounded {
+        border-radius: 5px;
+      }
+
+      section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+      }
+
+      article {
+        border: 1px solid var(--text-color);
+        padding: 8px;
+        position: relative;
+        background-color: white;
+      }
+
+      .price {
+        display: inline-block;
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
+      }
+
+      .order {
+        font-size: 1.2em;
+        width: 100%;
+      }
+
+      .discount {
+        background-color: rgb(217, 217, 0);
+        border-top-left-radius: 0;
+        display: inline-block;
+        padding: 5px;
+        position: absolute;
+        left: 8px;
+        top: 8px;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        transition-duration: 0.5s;
+      }
+
+      @media (min-width: 768px) {
+        .dropdown {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        section {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 960px) {
+        section {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @keyframes spin {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
+
+      article:hover {
+        animation: spin 0.5s;
+        animation-fill-mode: forwards;
+        z-index: 1;
+      }
+
+      .dropbtn {
+        background-color: var(--primary);
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropdown-content {
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+        border: 1px solid black;
+        overflow-y: hidden;
+        height: 0;
+        opacity: 0;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        height: auto;
+        opacity: 1;
+      }
+    </style>
+    <title>Проєкт</title>
+  </head>
+  <body>
+    <header>
+      <img src="logo.jpg" alt="logo" height="50px" id="logo" />
+      <nav>
+        <span class="navigation">Головна</span>
+        <a href="about.html" target="_blank">Про нас</a>
+        <a href="contact.html" target="_blank">Контакти</a>
+      </nav>
+      <div class="dropdown">
+        <button class="dropbtn">Навігація</button>
+        <div class="dropdown-content">
+          <a href="about.html" target="_blank">Про нас</a>
+          <a href="contact.html" target="_blank">Контакти</a>
+        </div>
+      </div>
+      <button id="login" class="rounded">Вхід</button>
+    </header>
+    <main>
+      <section>
+        <article class="rounded">
+          <aside class="discount rounded">Знижка!</aside>
+          <img
+            src="https://images.unsplash.com/photo-1682687220975-7b2df674d3ce"
+            alt="Person in desert"
+            height="250px" />
+          <h3>Картина "Людина в пустелі"</h3>
+          <p>Настінна картина, де зображено чоловіка, який іде пустелею</p>
+          <strong class="price">1100 грн</strong> <del>1500 грн</del>
+          <button class="order">Замовити</button>
+        </article>
+        <article class="rounded">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/POL_2007_08_04_Jaroslawiec_zachodniopomorskie_02.JPG/440px-POL_2007_08_04_Jaroslawiec_zachodniopomorskie_02.JPG"
+            alt="Sea"
+            height="250px" />
+          <h3>Картина "Азовське море"</h3>
+          <p>Маріуполь - це Україна!</p>
+          <strong class="price">1100 грн</strong> <del>1500 грн</del>
+          <button class="order">Замовити</button>
+        </article>
+        <article class="rounded">
+          <img
+            src="https://img.freepik.com/free-photo/a-picture-of-fireworks-with-a-road-in-the-background_1340-43363.jpg?w=740&t=st=1704052449~exp=1704053049~hmac=0f4fb9cfb48509ba9453aa8b782010f95a1760b54bba0de01e64007029dbe5a5"
+            alt="Fireworks"
+            height="250px" />
+          <h3>Картина "Фейерверк"</h3>
+          <strong class="price">1100 грн</strong> <del>1500 грн</del>
+          <button class="order">Замовити</button>
+        </article>
+        <article class="rounded">
+          <img
+            src="https://img.freepik.com/free-vector/beautiful-sunrise-over-ocean-with-golden-sun-and-dark-red-waves_1284-10872.jpg?t=st=1704051604~exp=1704052204~hmac=308bf92ce062ba5845658679e5b41601c8f7aba7428c09e8233c7728e8eba474"
+            alt="Sea"
+            height="250px" />
+          <h3>Картина "Азовське море"</h3>
+          <p>Маріуполь - це Україна!</p>
+          <strong class="price">1100 грн</strong> <del>1500 грн</del>
+          <button class="order">Замовити</button>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
